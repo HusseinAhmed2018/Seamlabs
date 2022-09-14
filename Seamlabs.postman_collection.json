@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "7f5726c7-9e94-42c4-ab86-ce79faa744d2",
+		"name": "Seamlabs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "hussein ahmed",
+									"type": "text"
+								},
+								{
+									"key": "user_name",
+									"value": "hussein_ahmed",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "eng.husseinad@gmail.com",
+									"description": "email only",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "1991-05-02",
+									"description": "date format (Y-m-d)",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01020330547",
+									"description": "should egyptian mobile phone start with (010, 011, 012)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{site}}/api/register",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "hussein_ahmed",
+									"description": "email or user_name can login",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/api/login",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "    // \"password\" : \"1-crucialCrew\"\n// \"email\" : \"mariahafeez.official@gmail.com\",\n        // \"password\" : \"123456789\""
+					},
+					"response": []
+				},
+				{
+					"name": "get current login user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\" : \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0NTcyODE3MSwiZXhwIjoxNjQ1NzMxNzcxLCJuYmYiOjE2NDU3MjgxNzEsImp0aSI6IjR0THBLZ1VLNUlEUkVlMUMiLCJzdWIiOjQsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.PUY3KuXnO1Ev0lKnjwQyjmHkyvVEIi8hlETYuYzTNpU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/api/get_user",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"get_user"
+							]
+						},
+						"description": "add login token to request raw"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\" : \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0NzQxNzA2OCwiZXhwIjoxNjQ3NDIwNjY4LCJuYmYiOjE2NDc0MTcwNjgsImp0aSI6ImxBSXl1V1RMaDRXNENxNjgiLCJzdWIiOjQsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.d2-q3Hd0_hHwHB_o7DwJxDtfa9-QrYSuagdABi0rZqc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/api/logout",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/api/users",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/api/users/2",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user information",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "hussein ahmed",
+									"type": "text"
+								},
+								{
+									"key": "user_name",
+									"value": "hussein_ahmed",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "eng.husseinad@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "1992-05-02",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01289918999",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{site}}/api/users/2",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/api/users/1",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alphabetic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{site}}/api/alphabetic?input_string=BFG",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"alphabetic"
+					],
+					"query": [
+						{
+							"key": "input_string",
+							"value": "BFG"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "zeros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{site}}/api/zero",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"zero"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMVwvYXBpXC9sb2dpbiIsImlhdCI6MTY2MzE1MTYwMiwiZXhwIjoxNjYzMTU1MjAyLCJuYmYiOjE2NjMxNTE2MDIsImp0aSI6ImVqYW9oVERFSGt4OWF0UWgiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.SL6v1S7ZkREZ579W8ULctLf-fJ__lc0sg-n6x6tEA9g",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "site",
+			"value": "http://127.0.0.1:8001"
+		}
+	]
+}
